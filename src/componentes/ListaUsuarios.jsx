@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { alertaSuccess, alertaError, alertaWarning, alertaConfirmation } from '../functions';
+//import { alertaSuccess, alertaError, alertaWarning, alertaConfirmation } from '../functions';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 const ListaUsuarios = () => {
 
     const url = 'https://api.escuelajs.co/api/v1/users';
+
     const [usuarios, setUsuarios] = useState([]);
+
     const [id, setId] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,7 +17,7 @@ const ListaUsuarios = () => {
     const [role, setRole] = useState('');
     const [avatar, setAvatar] = useState('');
     const [creationAt, setCreationAt] = useState('');
-    const [updatedAt, setUpdatedAt] = useState(1);
+    const [updatedAt, setUpdatedAt] = useState('');
 
     const getUsuarios = async () => {
         const response = await axios.get(url);
@@ -25,8 +27,8 @@ const ListaUsuarios = () => {
     useEffect( () => {
         getUsuarios();
     });
+
     return(
-       
         <div className='row mt-3'>
             <div className='col-12 col-lg-8 offset-0 offset-lg-2'>
                 <div className='table-responsive'>
@@ -52,9 +54,7 @@ const ListaUsuarios = () => {
                                         <td>{usuarios.password}</td>
                                         <td>{usuarios.name}</td>
                                         <td>{usuarios.role}</td>
-                                        <td>
-                                            
-                                        </td>
+                                        <td><img src={usuarios.avatar} class="img-thumbnail" alt='Aavatar'></img> </td>
                                     </tr>
                                 ))
                             }
@@ -63,9 +63,7 @@ const ListaUsuarios = () => {
                 </div>
             </div>
         </div>
-        
-      
-    );
+    )
 }
 
 export default ListaUsuarios;
