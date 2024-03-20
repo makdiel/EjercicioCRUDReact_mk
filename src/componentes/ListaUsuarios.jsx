@@ -8,7 +8,7 @@ const ListaUsuarios = () => {
 
     const url = 'https://api.escuelajs.co/api/v1/users';
 
-    const [usuarios, setUsuarios] = useState([]);   
+    const [usuarios, setUsuarios] = useState([]);
     const [id, setId] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -29,7 +29,7 @@ const ListaUsuarios = () => {
         getUsuarios();
     });
 
-    const openModal = (operation, id, email, password, name,role) => {
+    const openModal = (operation, id, email, password, name, role) => {
         setId('');
         setEmail('');
         setPassword('');
@@ -137,6 +137,17 @@ const ListaUsuarios = () => {
 
     return (
         <div className='App'>
+            
+            <div className='row mt-3'>
+                <div className='col-md-4 offset-md-4'>
+                    <div className='d-grid mx-auto'>
+                        <button onClick={() => openModal(1)} className='btn btn-dark' data-bs-toggle='modal' data-bs-target='#modalProducts'>
+                            <i className='fa-solid fa-circle-plus' /> Añadir
+                        </button>
+                    </div>
+                </div>
+            
+        </div>
             <div className='row mt-3'>
                 <div className='col-12 col-lg-8 offset-0 offset-lg-2'>
                     <div className='table-responsive'>
@@ -164,11 +175,11 @@ const ListaUsuarios = () => {
                                             <td>{usuarios.role}</td>
                                             <td><img src={usuarios.avatar} className="img-thumbnail" alt='Aavatar'></img> </td>
                                             <td>
-                                                <button onClick={() => openModal(2, usuarios.id, usuarios.email, usuarios.password, usuarios.name,usuarios.role)} className='btn btn-warning' data-bs-toggle='modal' data-bs-target='#modalProducts'>
-                                                    <i className='fa-solid fa-edit' />
+                                                <button onClick={() => openModal(2, usuarios.id, usuarios.email, usuarios.password, usuarios.name, usuarios.role)} className='btn btn-warning' data-bs-toggle='modal' data-bs-target='#modalProducts'>
+                                                    <i className='fa-solid fa-edit' /> Edit                                                    
                                                 </button>
                                                 <button onClick={() => deleteProducto(usuarios.id)} className='btn btn-danger'>
-                                                    <i className='fa-solid fa-trash' />
+                                                    <i className='fa-solid fa-trash' /> Del
                                                 </button>
                                             </td>
                                         </tr>
@@ -206,13 +217,13 @@ const ListaUsuarios = () => {
                             </div>
                         </div>
                         <div className='modal-footer'>
-                        <button onClick={() => validar()} className='btn btn-success'>
-                            <i className='fa-solid fa-floppy-disk' /> Guardar
-                        </button>
-                        <button id='btnCerrarModal' className='btn btn-secondary' data-bs-dismiss='modal'>
-                            Cerrar
-                        </button>
-                    </div>
+                            <button onClick={() => validar()} className='btn btn-success'>
+                                <i className='fa-solid fa-floppy-disk' /> Guardar
+                            </button>
+                            <button id='btnCerrarModal' className='btn btn-secondary' data-bs-dismiss='modal'>
+                                Cerrar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
