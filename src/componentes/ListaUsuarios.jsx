@@ -4,6 +4,12 @@ import { alertaSuccess, alertaError, alertaWarning, alertaConfirmation } from '.
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
+
+/**
+ * 
+ * @returns Gestiona la Lista de Usaurios
+ * @author Makdiel
+ */
 const ListaUsuarios = () => {
 
     const url = 'https://api.escuelajs.co/api/v1/users';
@@ -98,7 +104,7 @@ const ListaUsuarios = () => {
                 email: email,
                 password: password,
                 role: role,
-                images: ['https://c8.alamy.com/compes/r3yw81/el-icono-de-imagen-no-disponible-vector-plana-r3yw81.jpg']
+                avatar: ['https://c8.alamy.com/compes/r3yw81/el-icono-de-imagen-no-disponible-vector-plana-r3yw81.jpg']
             };
 
             if (operation === 1) {
